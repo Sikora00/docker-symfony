@@ -1,0 +1,22 @@
+version: '3.4'
+services:
+  symfony:
+    container_name: symfony
+    build:
+      context: ./symfony
+      dockerfile: ./docker/Dockerfile
+    environment:
+      - DEBUG=true
+      - VIRTUAL_HOST=symfony.local
+      - VIRTUAL_PORT=80
+    volumes:
+      - ./symfony:/var/www/html
+    ports:
+      - 8080:80
+    networks:
+      reverse-proxy:
+
+networks:
+  reverse-proxy:
+    external:
+      name: reverse-proxy
