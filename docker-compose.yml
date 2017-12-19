@@ -14,9 +14,21 @@ services:
     ports:
       - 8080:80
     networks:
-      reverse-proxy:
+      - reverse-proxy
+      - network
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - 3366:3306
+    networks:
+      - network
 
 networks:
   reverse-proxy:
     external:
       name: reverse-proxy
+  network:
+    driver: bridge
