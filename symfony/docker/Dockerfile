@@ -4,6 +4,10 @@ COPY src/ /var/www/html/
 RUN apt-get update \
     && docker-php-ext-install mbstring mysqli opcache pdo_mysql
 
+### Install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
 #RUN pecl install redis-3.1.0 \
 #    && pecl install xdebug-2.5.0 \
 #    && docker-php-ext-enable redis xdebug
