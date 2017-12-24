@@ -1,5 +1,7 @@
 FROM php:7.2-apache
+
 COPY ./ /var/www/html/
+COPY ./docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN apt-get update \
     && docker-php-ext-install mbstring mysqli opcache pdo_mysql
