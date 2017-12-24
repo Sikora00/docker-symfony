@@ -8,8 +8,14 @@ RUN apt-get update \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN apt-get -y install git-core
+
 WORKDIR /var/www/html
-RUN chown 1000:www-data -R *
+
+### Project Permissions
+RUN chown 1000:1000 -R *
+RUN chown 1000:www-data -R ./public
+
+### Allow symfony packages
 USER 1000
 RUN composer config extra.symfony.allow-contrib true
 
