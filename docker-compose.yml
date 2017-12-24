@@ -5,6 +5,7 @@ services:
     build:
       context: ./symfony
       dockerfile: ./docker/Dockerfile
+    image: sikora00/docker-symfony
     environment:
       - DEBUG=true
       - VIRTUAL_HOST=symfony.local
