@@ -4,7 +4,7 @@ services:
     container_name: symfony
     build:
       context: ./symfony
-      dockerfile: ./docker/Dockerfile
+      dockerfile: symfony/Dockerfile
     image: sikora00/docker-symfony
     environment:
       - DEBUG=true
