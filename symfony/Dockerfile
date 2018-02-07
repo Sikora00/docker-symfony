@@ -26,5 +26,6 @@ RUN composer config extra.symfony.allow-contrib true
 #RUN pecl install redis-3.1.0 \
 #    && pecl install xdebug-2.5.0 \
 #    && docker-php-ext-enable redis xdebug
+RUN ls -la
 USER root
 EXPOSE 80
