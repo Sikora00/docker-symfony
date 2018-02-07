@@ -6,6 +6,8 @@ COPY ./docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN apt-get update \
     && docker-php-ext-install mbstring mysqli opcache pdo_mysql
 
+RUN apt-get install --yes zip unzip
+
 ### Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
