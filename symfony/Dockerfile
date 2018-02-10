@@ -15,6 +15,7 @@ RUN apt-get -y install git-core
 
 WORKDIR /var/www/html
 
+RUN composer install
 ### Project Permissions
 RUN chown 1000:1000 -R *
 RUN chown 1000:www-data -R ./public
